@@ -10,31 +10,30 @@ import org.springframework.web.bind.annotation.RestController;
 public class ApiController {
 
     @GetMapping("/admin")
-    public String adminDetails(Authentication authentication) {
+    public String adminDetails() {
 
-        String username = authentication.getName();
-        return "Hello ADMIN: " + username;
+        return "admin";
     }
 
-    @GetMapping("/user")
-    public String userDetails(Authentication authentication) {
-
-        String username = authentication.getName();
-        return "Hello USER: " + username;
-    }
-
-    @GetMapping("/unknown")
-    public String anyDetails(Authentication authentication) {
-        if (authentication == null) {
-            return "Hello, nobody logged yet";
-        }
-
-        String username = authentication.getName();
-        return "Hello UNKNOWN: " + username;
-    }
-
-    @GetMapping("/good bye")
-    public String sayBye(){
-        return "good bye";
-    }
+//    @GetMapping("/user")
+//    public String userDetails(Authentication authentication) {
+//
+//        String username = authentication.getName();
+//        return "Hello USER: " + username;
+//    }
+//
+//    @GetMapping("/unknown")
+//    public String anyDetails(Authentication authentication) {
+//        if (authentication == null) {
+//            return "Hello, nobody logged yet";
+//        }
+//
+//        String username = authentication.getName();
+//        return "Hello UNKNOWN: " + username;
+//    }
+//
+//    @GetMapping("/good bye")
+//    public String sayBye(){
+//        return "good bye";
+//    }
 }

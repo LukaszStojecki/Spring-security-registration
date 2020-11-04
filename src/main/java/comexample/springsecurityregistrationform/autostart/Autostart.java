@@ -14,8 +14,6 @@ public class Autostart {
     private PasswordEncoder passwordEncoder;
 
     public Autostart(UserRepository userRepository, PasswordEncoder passwordEncoder) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
 
         User user = new User();
         user.setUsername("Administrator");

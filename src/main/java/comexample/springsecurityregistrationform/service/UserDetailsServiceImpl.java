@@ -1,5 +1,6 @@
 package comexample.springsecurityregistrationform.service;
 
+import comexample.springsecurityregistrationform.model.User;
 import comexample.springsecurityregistrationform.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,6 +18,6 @@ public class UserDetailsServiceImpl  implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username);
+        return userRepository.findByUsername(username).get();
     }
 }
