@@ -20,14 +20,14 @@ public class User implements UserDetails {
     @Enumerated(value = EnumType.STRING)
     private Role roles;
 
+    public User() {
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
 
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(roles.getAuthority()));
-
-        return  authorities;
+        SimpleGrantedAuthority simpleGrantedAuthority = new SimpleGrantedAuthority(roles.name());
+        return Collections.singletonList(simpleGrantedAuthority);
     }
 
     @Override
@@ -82,5 +82,15 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }
