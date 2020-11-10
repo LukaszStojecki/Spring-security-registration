@@ -58,7 +58,7 @@ public class ApiController {
     public String saveUserSignUpForm(User user){
 
         userService.addNewUser(user);
-        return "redirect:/login";
+        return "index";
     }
 
 //    @GetMapping("/user")
