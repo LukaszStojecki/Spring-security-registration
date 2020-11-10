@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import javax.validation.Valid;
 
 
 @Controller
@@ -23,20 +24,21 @@ public class ApiController {
 //    }
 
     private UserService userService;
-    private UserRepository userRepository;
 
     @Autowired
-    public ApiController(UserService userService, UserRepository userRepository) {
+    public ApiController(UserService userService) {
         this.userService = userService;
-        this.userRepository = userRepository;
+
     }
 
     @GetMapping("/")
     public String showMainPage(Principal principal, Model model) {
-        if (principal != null)
+        if (principal != null){
             model.addAttribute("username", principal.getName());
-        else
+        } else{
             model.addAttribute("username", "Niezalogowany");
+        }
+
         return "index";
     }
 
@@ -53,7 +55,8 @@ public class ApiController {
     }
 
     @PostMapping("/register")
-    public String saveUserSignUpForm(User user) {
+    public String saveUserSignUpForm(User user){
+
         userService.addNewUser(user);
         return "redirect:/login";
     }

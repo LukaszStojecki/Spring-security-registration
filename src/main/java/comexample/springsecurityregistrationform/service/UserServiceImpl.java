@@ -23,8 +23,13 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void addNewUser(User user) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            user.setRoles(Role.USER);
-            userRepository.save(user);
+//            if (userRepository.existsUserByUsername(user.getUsername())){
+//                throw new Exception("User already exists");
+//            } else {
+                user.setPassword(passwordEncoder.encode(user.getPassword()));
+                user.setRoles(Role.USER);
+                userRepository.save(user);
+//            }
+
     }
 }
