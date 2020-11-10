@@ -56,9 +56,8 @@ public class ApiController {
 
     @PostMapping("/register")
     public String saveUserSignUpForm(User user){
-
         userService.addNewUser(user);
-        return "index";
+        return "redirect:/sign-up?success";
     }
 
 //    @GetMapping("/user")
