@@ -10,7 +10,6 @@
           crossorigin="anonymous">
 </head>
 <body>
-<!-- create navigation bar ( header) -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -21,8 +20,7 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Registration and
-                Login Module</a>
+            <a class="navbar-brand" href="#" th:href="@{/}">Registration form</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -35,16 +33,18 @@
 <br>
 <br>
 <br>
+<div class="container">
+    <h1>Welcome to my registration form</h1>
+    <br>
+    <p> Create an account to use the site</p><br>
+    <p th:text="'Hello '+ ${username} + ', nice to see you!'"></p>
+    <form action="/sign-up" method="get">
+        <input type="submit" value="Register">
+    </form>
+    <form action="/login" method="get">
+        <input type="submit" value="Sign it!">
+    </form>
+</div>
 
-<p>Witaj na mojej stronie</p>
-<br>
-<p>Załóż konto, aby korzystać z serwisu</p><br>
-<p th:text="'Witaj '+ ${username}"></p>
-<form action="/sign-up" method="get">
-    <input type="submit" value="Rejestracja">
-</form>
-<form action="/login" method="get">
-    <input type="submit" value="Zaloguj się">
-</form>
 </body>
 </html>

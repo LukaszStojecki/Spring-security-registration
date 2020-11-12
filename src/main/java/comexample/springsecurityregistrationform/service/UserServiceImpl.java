@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
 //                throw new Exception("User already exists");
 //            } else {
                 user.setPassword(passwordEncoder.encode(user.getPassword()));
-                user.setRoles(Role.USER);
+                user.setRoles(user.getRoles());
                 userRepository.save(user);
 //            }
 

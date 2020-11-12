@@ -1,5 +1,6 @@
 package comexample.springsecurityregistrationform.controller;
 
+import comexample.springsecurityregistrationform.model.Role;
 import comexample.springsecurityregistrationform.model.User;
 import comexample.springsecurityregistrationform.repository.UserRepository;
 import comexample.springsecurityregistrationform.service.UserDetailsServiceImpl;
@@ -36,7 +37,7 @@ public class ApiController {
         if (principal != null){
             model.addAttribute("username", principal.getName());
         } else{
-            model.addAttribute("username", "Niezalogowany");
+            model.addAttribute("username", "Unknown");
         }
 
         return "index";
@@ -56,29 +57,10 @@ public class ApiController {
 
     @PostMapping("/register")
     public String saveUserSignUpForm(User user){
+
         userService.addNewUser(user);
-        return "redirect:/sign-up?success";
+        System.out.println(user);
+        return "redirect:/login";
     }
 
-//    @GetMapping("/user")
-//    public String userDetails(Authentication authentication) {
-//
-//        String username = authentication.getName();
-//        return "Hello USER: " + username;
-//    }
-//
-//    @GetMapping("/unknown")
-//    public String anyDetails(Authentication authentication) {
-//        if (authentication == null) {
-//            return "Hello, nobody logged yet";
-//        }
-//
-//        String username = authentication.getName();
-//        return "Hello UNKNOWN: " + username;
-//    }
-//
-//    @GetMapping("/good bye")
-//    public String sayBye(){
-//        return "good bye";
-//    }
 }

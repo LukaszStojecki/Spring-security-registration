@@ -1,5 +1,6 @@
 package comexample.springsecurityregistrationform.repository;
 
+import comexample.springsecurityregistrationform.model.Role;
 import comexample.springsecurityregistrationform.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
